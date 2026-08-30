@@ -79,7 +79,7 @@ if modo == "Interface do Funcionário (Chat)":
         st.markdown("""
             <div class="agent-card">
                 <strong>🤖 FALACENOP:</strong><br>
-                Olá! Passando para acompanhar o seu dia na <strong>Cenop Neg PF 1981</strong>.<br><br>
+                Olá! Passando para acompanhar o seu dia no <strong>Cenop Neg PF 1981</strong>.<br><br>
                 Como está o seu ritmo para conduzir as demandas hoje?
             </div>
         """, unsafe_allow_html=True)
@@ -111,7 +111,7 @@ if modo == "Interface do Funcionário (Chat)":
         """, unsafe_allow_html=True)
 
         motivos = [
-            "📦 Volume de Demandas PF",
+            "📦 Volume de Demandas",
             "🖥️ Instabilidade de Sistemas",
             "📑 Complexidade de Processos / Dúvidas",
             "💬 Comunicação / Alinhamento Interno",
