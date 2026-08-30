@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+import tempfile
 from datetime import datetime
 
 # Configuração inicial
@@ -10,9 +11,8 @@ st.set_page_config(
     layout="centered"
 )
 
-# Define o caminho do banco de dados na pasta Downloads da usuária (evita PermissionError)
-USER_HOME = os.path.expanduser("~")
-DB_FILE = os.path.join(USER_HOME, "Downloads", "respostas_clima.csv")
+# Define o caminho do banco de dados na pasta temporaria do servidor
+DB_FILE = os.path.join(tempfile.gettempdir(),  "respostas_clima.csv")
 
 # Função para salvar a resposta no arquivo de dados
 def salvar_resposta(status, motivo="N/A", comentario=""):
