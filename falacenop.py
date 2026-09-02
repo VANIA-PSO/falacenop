@@ -6,7 +6,7 @@ from datetime import datetime
 
 # Configuração inicial
 st.set_page_config(
-    page_title="FALACENOP - Cenop Neg PF 1981",
+    page_title="FALACENOP - Cenop Serviços SP 1981",
     page_icon="🔵",
     layout="centered"
 )
@@ -62,7 +62,7 @@ st.markdown("""
     <div class="bb-header">
         <span class="bb-tag">Banco do Brasil</span>
         <div class="bb-title">FALACENOP — Monitoramento de Clima</div>
-        <div class="bb-subtitle">Plataforma de Escuta Ativa | Cenop Neg PF 1981</div>
+        <div class="bb-subtitle">Plataforma de Escuta Ativa | Cenop Serviços SP 1981</div>
     </div>
 """, unsafe_allow_html=True)
 
@@ -79,7 +79,7 @@ if modo == "Interface do Funcionário (Chat)":
         st.markdown("""
             <div class="agent-card">
                 <strong>🤖 FALACENOP:</strong><br>
-                Olá! Passando para acompanhar o seu dia no <strong>Cenop Neg PF 1981</strong>.<br><br>
+                Olá! Passando para acompanhar o seu dia no <strong>Cenop Serviços SP 1981</strong>.<br><br>
                 Como está o seu ritmo para conduzir as demandas hoje?
             </div>
         """, unsafe_allow_html=True)
