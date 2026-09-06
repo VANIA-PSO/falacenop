@@ -11,7 +11,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# Estilo e Cartão Azul com Título e Mascote
+# Estilo e Cartão Azul Único com Título e Mascote
 st.markdown("""
     <style>
     .tag-bb {
@@ -24,28 +24,22 @@ st.markdown("""
         display: inline-block;
         margin-bottom: 8px;
     }
+    div[data-testid="stVerticalBlock"] div[data-testid="stHorizontalBlock"] {
+        background-color: #003399;
+        padding: 20px;
+        border-radius: 10px;
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# Container estilizado simulando o cartão azul
+# Bloco único do cabeçalho
 with st.container():
-    # Aplica o fundo azul no bloco do Streamlit usando CSS nativo
-    st.markdown("""
-        <style>
-        div[data-testid="stVerticalBlock"] div[data-testid="stHorizontalBlock"] {
-            background-color: #003399;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        </style>
-    """, unsafe_allow_html=True)
-
     col_texto, col_mascote = st.columns([3, 1])
 
     with col_texto:
         st.markdown('<div class="tag-bb">BANCO DO BRASIL</div>', unsafe_allow_html=True)
-        st.markdown("### FALACENOP — Monitoramento de Clima")
-        st.caption("Plataforma de Escuta Ativa | Cenop Serviços SP 1981")
+        st.markdown("<h2 style='color: white; margin: 0;'>FALACENOP — Monitoramento de Clima</h2>", unsafe_allow_html=True)
+        st.markdown("<p style='color: #E0E0E0; margin-top: 5px;'>Plataforma de Escuta Ativa | Cenop Serviços SP 1981</p>", unsafe_allow_html=True)
 
     with col_mascote:
         st.image("mascote.png", use_container_width=True)
