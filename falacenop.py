@@ -123,7 +123,7 @@ elif st.session_state.step == 3:
                     <strong>Tenha um ótimo trabalho! 💛💙</strong>
                 </div>
             """, unsafe_allow_html=True)
-            if st.button("🔄 Simular Novo Teste", type="secondary"):
+if st.button("🔄 Simular Novo Teste", type="secondary"):
                 st.session_state.step = 1
                 st.session_state.resposta_farol = None
                 st.rerun()
