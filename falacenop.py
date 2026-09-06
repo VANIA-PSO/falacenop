@@ -100,7 +100,7 @@ if st.session_state.step == 2:
                 </div>
             """, unsafe_allow_html=True)
     
-            motivos = [
+             motivos = [
                 "📦 Volume de Demandas",
                 "🖥️ Instabilidade de Sistemas",
                 "📑 Complexidade de Processos / Dúvidas",
