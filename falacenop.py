@@ -74,7 +74,7 @@ if 'resposta_farol' not in st.session_state:
 
         Como está o ritmo para conduzir as demandas hoje?
         """)
-        
+        col1, col2, col3 = st.columns(3)
         with col1:
             if st.button("Energizado(a) - Fluxo normal", use_container_width=True, key="btn_energizado"):
                 salvar_resposta("🟢 Energizado(a)")
@@ -87,9 +87,6 @@ if 'resposta_farol' not in st.session_state:
                 st.rerun()
         with col3:
             if st.button("Sob Pressão - Preciso de suporte", use_container_width=True, key="btn_pressao"):
-                st.session_state.resposta_farol = "🔴 Sob Pressão"
-                st.session_state.step = 2
-                st.rerun()
                 st.session_state.resposta_farol = "🔴 Sob Pressão"
                 st.session_state.step = 2
                 st.rerun()
