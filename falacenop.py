@@ -91,8 +91,8 @@ if modo == "Interface do Funcionário (Chat)":
                     st.session_state.step = 2
                     st.rerun()
     
-        elif st.session_state.step == 2:
-            st.markdown(f"""
+            elif st.session_state.step == 2:
+                 st.markdown(f"""
                 <div class="agent-card">
                     <strong>🤖 FALACENOP:</strong><br>
                     Entendido! Você registrou o status <strong>{st.session_state.resposta_farol}</strong>.<br><br>
