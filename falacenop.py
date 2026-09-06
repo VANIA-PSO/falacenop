@@ -63,23 +63,22 @@ if modo == "Interface do Funcionário (Chat)":
     # MODO 1: INTERFACE DO FUNCIONÁRIO
     # ---------------------------------------------------------
     if 'step' not in st.session_state:
-            st.session_state.step = 1
+        st.session_state.step = 1
     if 'resposta_farol' not in st.session_state:
         st.session_state.resposta_farol = None
-    
-   if st.session_state.step == 1:
+    if st.session_state.step == 1:
         st.markdown("""
         **FALACENOP:**
         
-        Olá! Passando para acompanhar o seu dia no Cenop Serviços SP 1981.
+    Olá! Passando para acompanhar o seu dia no Cenop Serviços SP 1981.
         
-        Como está o ritmo para conduzir as demandas hoje?
-        """)
+    Como está o ritmo para conduzir as demandas hoje?
+     """)
         
-        humor = st.radio(
-            "Selecione a opção que melhor descreve o momento:",
-            ["🟢 Energizado(a) / Fluxo normal", "🟡 Em Alerta / Gargalos pontuais", "🔴 Sob Pressão / Preciso de suporte"],
-            key="escolha_humor"
+    humor = st.radio(
+        "Selecione a opção que melhor descreve o momento:",
+        ["🟢 Energizado(a) / Fluxo normal", "🟡 Em Alerta / Gargalos pontuais", "🔴 Sob Pressão / Preciso de suporte"],
+         key="escolha_humor"
         )
         
         if st.button("Avançar para o Registro", type="primary", use_container_width=True):
