@@ -11,6 +11,17 @@ st.set_page_config(
     layout="centered"
 )
 
+# Cabeçalho com mascote à direita
+col_texto, col_mascote = st.columns([3, 1])
+
+with col_texto:
+    st.title("FALACENOP — Monitoramento de Clima")
+    st.caption("Plataforma de Escuta Ativa | Cenop Serviços SP 1981")
+
+with col_mascote:
+    st.image("farolresolve.png", width=140)
+
+
 # Define o caminho do banco de dados na pasta temporaria do servidor
 DB_FILE = os.path.join(tempfile.gettempdir(),  "respostas_clima.csv")
 
