@@ -82,17 +82,17 @@ if modo == "Interface do Funcionário (Chat)":
 )
 
 if st.button("Avançar para o Registro", type="primary"):
-    if "Energizado" in humor:
-        st.session_state.resposta_farol = "⚡ Energizado"
-    elif "Alerta" in humor:
-        st.session_state.resposta_farol = "🟡 Em Alerta"
-    else:
-        st.session_state.resposta_farol = "🔴 Sob Pressão"
-    st.session_state.step = 2
-    st.rerun()
+        if "Energizado" in humor:
+            st.session_state.resposta_farol = "⚡ Energizado"
+        elif "Alerta" in humor:
+            st.session_state.resposta_farol = "🟡 Em Alerta"
+        else:
+            st.session_state.resposta_farol = "🔴 Sob Pressão"
+        st.session_state.step = 2
+        st.rerun()
 
 
-    elif st.session_state.step == 2:
+elif st.session_state.step == 2:
         st.markdown(f"""
             <div class="agent-card">
                 <strong>🤖 FALACENOP:</strong><br>
