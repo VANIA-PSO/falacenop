@@ -72,9 +72,6 @@ if modo == "Interface do Funcionário (Chat)":
         st.session_state.resposta_farol = None
 
     if st.session_state.step == 1:
-        st.markdown("""
-           
-
         col1, col2, col3 = st.columns(3)
         with col1:
             if st.button("🟢 Energizado(a)\n\n(Fluxo normal)", use_container_width=True):
