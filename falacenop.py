@@ -19,7 +19,7 @@ with col_texto:
     st.caption("Plataforma de Escuta Ativa | Cenop Serviços SP 1981")
 
 with col_mascote:
-    st.image("farolresolve.png", width=140)
+    st.image("mascote.png", width=140)
 
 
 # Define o caminho do banco de dados na pasta temporaria do servidor
