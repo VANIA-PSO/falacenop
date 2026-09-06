@@ -77,19 +77,23 @@ if 'resposta_farol' not in st.session_state:
         
         col1, col2, col3 = st.columns(3)
         with col1:
-            if st.button("🟢 Energizado(a)\n\n(Fluxo normal)", use_container_width=True):
+           col1, col2, col3 = st.columns(3)
+        with col1:
+            if st.button("🟢 Energizado(a)\n\n(Fluxo normal)", use_container_width=True, key="btn_energizado"):
                 salvar_resposta("🟢 Energizado(a)")
                 st.session_state.step = 3
                 st.rerun()
         with col2:
-            if st.button("🟡 Em Alerta\n\n(Gargalos pontuais)", use_container_width=True):
+            if st.button("🟡 Em Alerta\n\n(Gargalos pontuais)", use_container_width=True, key="btn_alerta"):
                 st.session_state.resposta_farol = "🟡 Em Alerta"
                 st.session_state.step = 2
                 st.rerun()
         with col3:
-            if st.button("🔴 Sob Pressão\n\n(Preciso de suporte)", use_container_width=True):
+            if st.button("🔴 Sob Pressão\n\n(Preciso de suporte)", use_container_width=True, key="btn_pressao"):
                 st.session_state.resposta_farol = "🔴 Sob Pressão"
                 st.session_state.step = 2
+                st.rerun()
+
                 st.rerun()
 if modo == "Interface do Funcionário (Chat)":
     if 'step' not in st.session_state:
