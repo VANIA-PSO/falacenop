@@ -59,9 +59,6 @@ def salvar_resposta(status, motivo="N/A", comentario=""):
 st.sidebar.title("📌 Navegação")
 modo = st.sidebar.radio("Selecione a exibição:", ["Interface do Funcionário (Chat)", "Painel da Gestão (Análises)"])
 
-
-""", unsafe_allow_html=True)
-
 # ---------------------------------------------------------
 # MODO 1: INTERFACE DO FUNCIONÁRIO
 # ---------------------------------------------------------
