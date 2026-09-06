@@ -116,20 +116,6 @@ if st.button("Avançar para o Registro", type="primary"):
             st.session_state.step = 3
             st.rerun()
 
-        elif st.session_state.step == 3:
-            st.success("✅ Registro computado com sucesso no indicador geral da equipe!")
-            st.markdown("""
-            <div class="agent-card">
-                <strong>🤖 FALACENOP:</strong><br>
-                Obrigado pelo seu retorno! Seu relato é fundamental para mapearmos os ofensores operacionais e mantermos o equilíbrio da equipe.<br><br>
-                <strong>Tenha um ótimo trabalho! 💛💙</strong>
-            </div>
-        """, unsafe_allow_html=True)
-        if st.button("🔄 Simular Novo Teste", type="secondary"):
-            st.session_state.step = 1
-            st.session_state.resposta_farol = None
-            st.rerun()
-
 # ---------------------------------------------------------
 # MODO 2: PAINEL DA GESTÃO (ANÁLISES E INDICADORES)
 # ---------------------------------------------------------
