@@ -130,40 +130,32 @@ elif st.session_state.step == 2:
             st.session_state.resposta_farol = None
             st.rerun()
 
-# ---------------------------------------------------------
-# MODO 2: PAINEL DA GESTÃO (ANÁLISES E INDICADORES)
-# ---------------------------------------------------------
-else:
-    st.subheader("📊 Consolidação do Clima da Equipe")
+# MODO 2: PAINEL DA GESTÃO (SEPARADO E RECOLHIDO)
+st.markdown("---")
+with st.expander("🔐 Acessar Painel de Gestão (Restrito)"):
+    st.subheader("Consolidação do Clima da Equipe")
     
     if os.path.exists(DB_FILE):
         df = pd.read_csv(DB_FILE)
         
         # Métricas gerais
-        total_respostas = len(df)
+        total_resp = len(df)
         verdes = len(df[df['Status'] == '🟢 Energizado(a)'])
         amarelos = len(df[df['Status'] == '🟡 Em Alerta'])
         vermelhos = len(df[df['Status'] == '🔴 Sob Pressão'])
-
+        
         c1, c2, c3, c4 = st.columns(4)
-        c1.metric("Total de Votos", total_respostas)
-        c2.metric("🟢 Energizado(a)", f"{verdes} ({(verdes/total_respostas)*100:.0f}%)" if total_respostas else 0)
-        c3.metric("🟡 Em Alerta", f"{amarelos} ({(amarelos/total_respostas)*100:.0f}%)" if total_respostas else 0)
-        c4.metric("🔴 Sob Pressão", f"{vermelhos} ({(vermelhos/total_respostas)*100:.0f}%)" if total_respostas else 0)
-
+        c1.metric("Total de Votos", total_resp)
+        c2.metric("🟢 Energizado", f"{verdes}")
+        c3.metric("🟡 Em Alerta", f"{amarelos}")
+        c4.metric("🔴 Sob Pressão", f"{vermelhos}")
+        
         st.divider()
-
-        # Distribuição de Motivos
-        st.markdown("### ⚠️ Principais Ofensores Operacionais")
-        df_motivos = df[df['Motivo'] != "N/A"]
+        st.markdown("### 📊 Principais Ofensores Operacionais")
+        df_motivos = df[df['Motivo'] != 'N/A']
         if not df_motivos.empty:
             st.bar_chart(df_motivos['Motivo'].value_counts())
         else:
             st.info("Nenhum gargalo registrado até o momento.")
-
-        # Tabela com histórico de respostas
-        st.markdown("### 📋 Histórico Detalhado")
-        st.dataframe(df, use_container_width=True)
-        
     else:
-        st.info("Nenhuma resposta registrada ainda. Realize testes na aba 'Interface do Funcionário (Chat)' para alimentar o painel.")
+        st.info("Nenhuma resposta registrada ainda.")
