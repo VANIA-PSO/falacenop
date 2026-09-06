@@ -109,17 +109,17 @@ if modo == "Interface do Funcionário (Chat)":
             "💬 Comunicação / Alinhamento Interno",
             "👤 Fatores Pessoais / Bem-estar"
         ]
-    motivo_selecionado = st.radio("Selecione o causador principal:", motivos)
-        comentario = st.text_area("Observação opcional para a gestão (privado):", placeholder="Escreva detalhes aqui se desejar...")
+        motivo_selecionado = st.radio("Selecione o causador principal:", motivos)
+            comentario = st.text_area("Observação opcional para a gestão (privado):", placeholder="Escreva detalhes aqui se desejar...")
 
-        if st.button("Enviar Registro", type="primary", use_container_width=True):
-        salvar_resposta(st.session_state.resposta_farol, motivo_selecionado, comentario)
-        st.session_state.step = 4
-        st.rerun()
+            if st.button("Enviar Registro", type="primary", use_container_width=True):
+            salvar_resposta(st.session_state.resposta_farol, motivo_selecionado, comentario)
+            st.session_state.step = 4
+            st.rerun()
 
-    elif st.session_state.step == 3:
-        st.success("✅ Registro computado com sucesso no indicador geral da equipe!")
-        st.markdown("""
+        elif st.session_state.step == 3:
+            st.success("✅ Registro computado com sucesso no indicador geral da equipe!")
+            st.markdown("""
             <div class="agent-card">
                 <strong>🤖 FALACENOP:</strong><br>
                 Obrigado pelo seu retorno! Seu relato é fundamental para mapearmos os ofensores operacionais e mantermos o equilíbrio da equipe.<br><br>
