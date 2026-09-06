@@ -114,7 +114,7 @@ if modo == "Interface do Funcionário (Chat)":
 
         if st.button("Enviar Registro", type="primary", use_container_width=True):
             salvar_resposta(st.session_state.resposta_farol, motivo_selecionado, comentario)
-            st.session_state.step = 4
+            st.session_state.step = 3
             st.rerun()
 
         elif st.session_state.step == 3:
