@@ -81,15 +81,15 @@ if modo == "Interface do Funcionário (Chat)":
              key="escolha_humor"
             )
             
-        if st.button("Avançar para o Registro", type="primary", use_container_width=True):
-            if "Energizado" in humor:
+            if st.button("Avançar para o Registro", type="primary", use_container_width=True):
+                if "Energizado" in humor:
                     st.session_state.resposta_farol = "🟢 Energizado"
             elif "Alerta" in humor:
                     st.session_state.resposta_farol = "🟡 Em Alerta"
             else:
                     st.session_state.resposta_farol = "🔴 Sob Pressão"
-            st.session_state.step = 2
-            st.rerun()
+                st.session_state.step = 2
+                st.rerun()
     
         elif st.session_state.step == 2:
             st.markdown(f"""
