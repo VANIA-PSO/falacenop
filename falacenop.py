@@ -54,29 +54,6 @@ def salvar_resposta(status, motivo="N/A", comentario=""):
     else:
         df_novo.to_csv(DB_FILE, mode='a', header=False, index=False)
 
-# Estilização CSS Banco do Brasil
-st.markdown("""
-    <style>
-    .stApp { background-color: #F4F5F8; }
-    .bb-header {
-        background: linear-gradient(135deg, #003399 0%, #002266 100%);
-        color: white; padding: 20px; border-radius: 10px;
-        border-bottom: 5px solid #FCF800; margin-bottom: 25px;
-    }
-    .bb-tag {
-        background-color: #FCF800; color: #003399;
-        font-weight: 900; font-size: 0.75rem; padding: 3px 8px;
-        border-radius: 4px; text-transform: uppercase;
-    }
-    .bb-title { font-size: 1.5rem; font-weight: bold; margin-top: 5px; margin-bottom: 0px; }
-    .bb-subtitle { font-size: 0.85rem; color: #E2E8F0; }
-    .agent-card {
-        background-color: white; padding: 18px; border-radius: 8px;
-        border-left: 4px solid #003399; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        margin-bottom: 20px;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 # Navegação lateral para acessar a Visão do Funcionário ou a Visão da Gestão
 st.sidebar.title("📌 Navegação")
