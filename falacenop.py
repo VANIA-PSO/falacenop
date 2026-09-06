@@ -59,13 +59,7 @@ def salvar_resposta(status, motivo="N/A", comentario=""):
 st.sidebar.title("📌 Navegação")
 modo = st.sidebar.radio("Selecione a exibição:", ["Interface do Funcionário (Chat)", "Painel da Gestão (Análises)"])
 
-# Cabeçalho Principal
-st.markdown("""
-    <div class="bb-header">
-        <span class="bb-tag">Banco do Brasil</span>
-        <div class="bb-title">FALACENOP — Monitoramento de Clima</div>
-        <div class="bb-subtitle">Plataforma de Escuta Ativa | Cenop Serviços SP 1981</div>
-    </div>
+
 """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
