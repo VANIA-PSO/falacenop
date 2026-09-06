@@ -64,8 +64,8 @@ modo = st.sidebar.radio("Selecione a exibição:", ["Interface do Funcionário (
 # ---------------------------------------------------------
 if 'step' not in st.session_state:
         st.session_state.step = 1
-    if 'resposta_farol' not in st.session_state:
-        st.session_state.resposta_farol = None
+if 'resposta_farol' not in st.session_state:
+    st.session_state.resposta_farol = None
 
     if st.session_state.step == 1:
         st.markdown("""
