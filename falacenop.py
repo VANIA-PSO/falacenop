@@ -86,7 +86,7 @@ if modo == "Interface do Funcionário (Chat)":
                     st.session_state.resposta_farol = "🟢 Energizado"
         elif "Alerta" in humor:
                     st.session_state.resposta_farol = "🟡 Em Alerta"
-            else:
+        else:
                     st.session_state.resposta_farol = "🔴 Sob Pressão"
                 st.session_state.step = 2
                 st.rerun()
