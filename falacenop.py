@@ -58,8 +58,8 @@ def salvar_resposta(status, motivo="N/A", comentario=""):
 # Navegação lateral para acessar a Visão do Funcionário ou a Visão da Gestão
 st.sidebar.title("📌 Navegação")
 modo = st.sidebar.radio("Selecione a exibição:", ["Interface do Funcionário (Chat)", "Painel da Gestão (Análises)"])
- if modo == "Interface do Funcionário (chat)":
-# ---------------------------------------------------------
+if modo == "Interface do Funcionário (Chat)":
+    # ---------------------------------------------------------
     # MODO 1: INTERFACE DO FUNCIONÁRIO
     # ---------------------------------------------------------
     if 'step' not in st.session_state:
