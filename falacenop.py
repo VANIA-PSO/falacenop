@@ -73,12 +73,7 @@ if modo == "Interface do Funcionário (Chat)":
 
     if st.session_state.step == 1:
         st.markdown("""
-            <div class="agent-card">
-                <strong>🤖 FALACENOP:</strong><br>
-                Olá! Passando para acompanhar o seu dia no <strong>Cenop Serviços SP 1981</strong>.<br><br>
-                Como está o seu ritmo para conduzir as demandas hoje?
-            </div>
-        """, unsafe_allow_html=True)
+           
 
         col1, col2, col3 = st.columns(3)
         with col1:
