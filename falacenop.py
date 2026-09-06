@@ -114,7 +114,7 @@ if st.button("Enviar Registro", type="primary", use_container_width=True):
         salvar_resposta(st.session_state.resposta_farol, motivo_selecionado, comentario)
         st.session_state.step = 3
         st.rerun()
-            elif st.session_state.step == 3:
+elif st.session_state.step == 3:
                 st.success("✅ Registro computado com sucesso no indicador geral da equipe!")
                 st.markdown("""
                 <div class="agent-card">
