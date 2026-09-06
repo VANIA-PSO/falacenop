@@ -79,7 +79,7 @@ if 'resposta_farol' not in st.session_state:
         with col1:
             if st.button("🟢 Energizado(a)\n\nFluxo normal", use_container_width=True, key="btn_energizado"):
                 salvar_resposta("🟢 Energizado(a)")
-                st.session_state.step = 3
+                st.session_state.step = 4
                 st.rerun()
         with col2:
             if st.button("🟡 Em Alerta\n\nGargalos pontuais", use_container_width=True, key="btn_alerta"):
