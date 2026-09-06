@@ -11,15 +11,44 @@ st.set_page_config(
     layout="centered"
 )
 
-# Cabeçalho com mascote à direita
-col_texto, col_mascote = st.columns([3, 1])
+# Estilo e Cartão Azul com Título e Mascote
+st.markdown("""
+    <style>
+    .tag-bb {
+        background-color: #FCDB00;
+        color: #003399;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        display: inline-block;
+        margin-bottom: 8px;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-with col_texto:
-    st.title("FALACENOP — Monitoramento de Clima")
-    st.caption("Plataforma de Escuta Ativa | Cenop Serviços SP 1981")
+# Container estilizado simulando o cartão azul
+with st.container():
+    # Aplica o fundo azul no bloco do Streamlit usando CSS nativo
+    st.markdown("""
+        <style>
+        div[data-testid="stVerticalBlock"] div[data-testid="stHorizontalBlock"] {
+            background-color: #003399;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
-with col_mascote:
-    st.image("mascote.png", width=140)
+    col_texto, col_mascote = st.columns([3, 1])
+
+    with col_texto:
+        st.markdown('<div class="tag-bb">BANCO DO BRASIL</div>', unsafe_allow_html=True)
+        st.markdown("### FALACENOP — Monitoramento de Clima")
+        st.caption("Plataforma de Escuta Ativa | Cenop Serviços SP 1981")
+
+    with col_mascote:
+        st.image("mascote.png", use_container_width=True)
 
 
 # Define o caminho do banco de dados na pasta temporaria do servidor
