@@ -112,7 +112,7 @@ if modo == "Interface do Funcionário (Chat)":
         motivo_selecionado = st.radio("Selecione o causador principal:", motivos)
         comentario = st.text_area("Observação opcional para a gestão (privado):", placeholder="Escreva detalhes aqui se desejar...")
 
-            if st.button("Enviar Registro", type="primary", use_container_width=True):
+        if st.button("Enviar Registro", type="primary", use_container_width=True):
             salvar_resposta(st.session_state.resposta_farol, motivo_selecionado, comentario)
             st.session_state.step = 4
             st.rerun()
