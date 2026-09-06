@@ -108,7 +108,7 @@ motivos = [
         "👤 Fatores Pessoais / Bem-estar"
     ]
 motivo_selecionado = st.radio("Selecione o causador principal:", motivos)
-    comentario = st.text_area("Observação opcional para a gestão (privado):", placeholder="Escreva aqui...")
+comentario = st.text_area("Observação opcional para a gestão (privado):", placeholder="Escreva aqui...")
 
     if st.button("Enviar Registro", type="primary", use_container_width=True):
         salvar_resposta(st.session_state.resposta_farol, motivo_selecionado, comentario)
