@@ -91,7 +91,7 @@ if modo == "Interface do Funcionário (Chat)":
                     st.session_state.step = 2
                     st.rerun()
     
-      if st.session_state.step == 2:
+if st.session_state.step == 2:
              st.markdown(f"""
                 <div class="agent-card">
                     <strong>🤖 FALACENOP:</strong><br>
