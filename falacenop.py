@@ -87,10 +87,10 @@ if modo == "Interface do Funcionário (Chat)":
                     st.session_state.step = 2
                     st.rerun()
             with col3:
-            if st.button("🔴 Sob Pressão\n\nPreciso de suporte", use_container_width=True, key="btn_pressao"):
-                st.session_state.resposta_farol = "🔴 Sob Pressão"
-                st.session_state.step = 2
-                st.rerun()
+                if st.button("🔴 Sob Pressão\n\nPreciso de suporte", use_container_width=True, key="btn_pressao"):
+                    st.session_state.resposta_farol = "🔴 Sob Pressão"
+                    st.session_state.step = 2
+                    st.rerun()
 
 
     elif st.session_state.step == 2:
