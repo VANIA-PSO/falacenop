@@ -67,38 +67,30 @@ if 'step' not in st.session_state:
 if 'resposta_farol' not in st.session_state:
     st.session_state.resposta_farol = None
 
-       if st.session_state.step == 1:
-            st.markdown("""
-            **FALACENOP:**
-            Olá! Passando para acompanhar o seu dia no Cenop Serviços SP 1981.
+    if st.session_state.step == 1:
+        st.markdown("""
+        **FALACENOP:**
+        Olá! Passando para acompanhar o seu dia no Cenop Serviços SP 1981.
 
-            Como está o ritmo para conduzir as demandas hoje?
-            """)
+        Como está o ritmo para conduzir as demandas hoje?
+         """)
             
-      if st.session_state.step == 1:
-            st.markdown("""
-            **FALACENOP:**
-            Olá! Passando para acompanhar o seu dia no Cenop Serviços SP 1981.
-
-            Como está o ritmo para conduzir as demandas hoje?
-            """)
-            
-            col1, col2, col3 = st.columns(3)
-            with col1:
-                if st.button("🟢 Energizado(a)\n\nFluxo normal", use_container_width=True, key="btn_energizado"):
-                    salvar_resposta("🟢 Energizado(a)")
-                    st.session_state.step = 3
-                    st.rerun()
-            with col2:
-                if st.button("🟡 Em Alerta\n\nGargalos pontuais", use_container_width=True, key="btn_alerta"):
-                    st.session_state.resposta_farol = "🟡 Em Alerta"
-                    st.session_state.step = 2
-                    st.rerun()
-            with col3:
-                if st.button("🔴 Sob Pressão\n\nPreciso de suporte", use_container_width=True, key="btn_pressao"):
-                    st.session_state.resposta_farol = "🔴 Sob Pressão"
-                    st.session_state.step = 2
-                    st.rerun()
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            if st.button("🟢 Energizado(a)\n\nFluxo normal", use_container_width=True, key="btn_energizado"):
+                salvar_resposta("🟢 Energizado(a)")
+                st.session_state.step = 3
+                st.rerun()
+        with col2:
+            if st.button("🟡 Em Alerta\n\nGargalos pontuais", use_container_width=True, key="btn_alerta"):
+                st.session_state.resposta_farol = "🟡 Em Alerta"
+                st.session_state.step = 2
+                st.rerun()
+        with col3:
+            if st.button("🔴 Sob Pressão\n\nPreciso de suporte", use_container_width=True, key="btn_pressao"):
+                st.session_state.resposta_farol = "🔴 Sob Pressão"
+                st.session_state.step = 2
+                st.rerun()
 
 
     elif st.session_state.step == 2:
