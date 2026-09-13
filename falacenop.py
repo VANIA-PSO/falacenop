@@ -81,15 +81,15 @@ if modo == "Interface do Funcionário (Chat)":
         st.markdown("""
             <div class="agent-card">
                 <strong>🤖 FALACENOP:</strong><br>
-                Olá! Passando para acompanhar o seu dia no <strong>Cenop Serviços SP 1981</strong>.<br><br>
+                Olá! Passando para acompanhar sua semana no <strong>Cenop Serviços SP 1981</strong>.<br><br>
                 Como está o seu ritmo para conduzir as demandas hoje?
             </div>
         """, unsafe_allow_html=True)
 
         col1, col2, col3 = st.columns(3)
         with col1:
-            if st.button("🟢 Energizado(a)\n\n(Fluxo normal)", use_container_width=True):
-                salvar_resposta("🟢 Energizado(a)")
+            if st.button("🟢 Motivado(a)\n\n(Fluxo normal)", use_container_width=True):
+                salvar_resposta("🟢 Motivado(a)")
                 st.session_state.mensagem_suporte = "Obrigado pelo seu retorno! Seu relato é fundamental para mantermos o equilíbrio da equipe.<br><br><strong>Tenha um ótimo trabalho! 💛💙</strong>"
                 st.session_state.step = 3
                 st.rerun()
@@ -166,13 +166,13 @@ else:
        
         # Métricas gerais
         total_respostas = len(df)
-        verdes = len(df[df['Status'] == '🟢 Energizado(a)'])
+        verdes = len(df[df['Status'] == '🟢 Motivado(a)'])
         amarelos = len(df[df['Status'] == '🟡 Em Alerta'])
         vermelhos = len(df[df['Status'] == '🔴 Sob Pressão'])
 
         c1, c2, c3, c4 = st.columns(4)
         c1.metric("Total de Votos", total_respostas)
-        c2.metric("🟢 Energizado(a)", f"{verdes} ({(verdes/total_respostas)*100:.0f}%)" if total_respostas else 0)
+        c2.metric("🟢 Motivado(a)", f"{verdes} ({(verdes/total_respostas)*100:.0f}%)" if total_respostas else 0)
         c3.metric("🟡 Em Alerta", f"{amarelos} ({(amarelos/total_respostas)*100:.0f}%)" if total_respostas else 0)
         c4.metric("🔴 Sob Pressão", f"{vermelhos} ({(vermelhos/total_respostas)*100:.0f}%)" if total_respostas else 0)
 
