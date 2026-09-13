@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # Define o caminho do banco de dados na pasta temporaria do servidor
-DB_FILE = os.path.join(tempfile.gettempdir(),  "respostas_clima.csv")
+DB_FILE = os.path.join(tempfile.gettempdir(), "respostas_clima.csv")
 
 # Função para salvar a resposta no arquivo de dados
 def salvar_resposta(status, motivo="N/A", comentario=""):
@@ -23,7 +23,7 @@ def salvar_resposta(status, motivo="N/A", comentario=""):
         "Comentario": [comentario]
     }
     df_novo = pd.DataFrame(novo_registro)
-    
+   
     if not os.path.exists(DB_FILE):
         df_novo.to_csv(DB_FILE, index=False)
     else:
@@ -57,11 +57,11 @@ st.markdown("""
 st.sidebar.title("📌 Navegação")
 modo = st.sidebar.radio("Selecione a exibição:", ["Interface do Funcionário (Chat)", "Painel da Gestão (Análises)"])
 
-# Cabeçalho Principal
+# Cabeçalho Principal (Atualizado sem "Monitoramento de Clima")
 st.markdown("""
     <div class="bb-header">
         <span class="bb-tag">Banco do Brasil</span>
-        <div class="bb-title">FALACENOP — Monitoramento de Clima</div>
+        <div class="bb-title">FALACENOP</div>
         <div class="bb-subtitle">Plataforma de Escuta Ativa | Cenop Serviços SP 1981</div>
     </div>
 """, unsafe_allow_html=True)
@@ -74,6 +74,8 @@ if modo == "Interface do Funcionário (Chat)":
         st.session_state.step = 1
     if 'resposta_farol' not in st.session_state:
         st.session_state.resposta_farol = None
+    if 'mensagem_suporte' not in st.session_state:
+        st.session_state.mensagem_suporte = ""
 
     if st.session_state.step == 1:
         st.markdown("""
@@ -88,6 +90,7 @@ if modo == "Interface do Funcionário (Chat)":
         with col1:
             if st.button("🟢 Energizado(a)\n\n(Fluxo normal)", use_container_width=True):
                 salvar_resposta("🟢 Energizado(a)")
+                st.session_state.mensagem_suporte = "Obrigado pelo seu retorno! Seu relato é fundamental para mapearmos os ofensores operacionais e mantermos o equilíbrio da equipe.<br><br><strong>Tenha um ótimo trabalho! 💛💙</strong>"
                 st.session_state.step = 3
                 st.rerun()
         with col2:
@@ -122,32 +125,45 @@ if modo == "Interface do Funcionário (Chat)":
 
         if st.button("Enviar Registro", type="primary", use_container_width=True):
             salvar_resposta(st.session_state.resposta_farol, motivo_selecionado, comentario)
+            
+            # Definição de respostas personalizadas de acordo com o motivo selecionado
+            if motivo_selecionado == "📦 Volume de Demandas":
+                st.session_state.mensagem_suporte = "As demandas são necessárias para manter sua ocupação dentro dos níveis necessários para cumprir o Conexão."
+            elif motivo_selecionado == "🖥️ Instabilidade de Sistemas":
+                st.session_state.mensagem_suporte = "Podemos abrir um chamado técnico."
+            elif motivo_selecionado == "📑 Complexidade de Processos / Dúvidas":
+                st.session_state.mensagem_suporte = "Podemos buscar cursos na UNIBB pra te ajudar."
+            elif motivo_selecionado == "👤 Fatores Pessoais / Bem-estar":
+                st.session_state.mensagem_suporte = "O Banco disponibiliza a plataforma Wellbe pra te ajudar a cuidar da saúde mental. Que tal agendar uma consulta?"
+            else:
+                st.session_state.mensagem_suporte = "Obrigado pelo seu retorno! Seu relato é fundamental para mapearmos os ofensores operacionais e mantermos o equilíbrio da equipe."
+
             st.session_state.step = 3
             st.rerun()
 
     elif st.session_state.step == 3:
         st.success("✅ Registro computado com sucesso no indicador geral da equipe!")
-        st.markdown("""
+        st.markdown(f"""
             <div class="agent-card">
                 <strong>🤖 FALACENOP:</strong><br>
-                Obrigado pelo seu retorno! Seu relato é fundamental para mantermos o equilíbrio da equipe.<br><br>
-                <strong>Tenha um ótimo trabalho! 💛💙</strong>
+                {st.session_state.mensagem_suporte}
             </div>
         """, unsafe_allow_html=True)
         if st.button("🔄 Simular Novo Teste", type="secondary"):
             st.session_state.step = 1
             st.session_state.resposta_farol = None
+            st.session_state.mensagem_suporte = ""
             st.rerun()
 
 # ---------------------------------------------------------
 # MODO 2: PAINEL DA GESTÃO (ANÁLISES E INDICADORES)
 # ---------------------------------------------------------
 else:
-    st.subheader("📊 Consolidação do Clima da Equipe")
-    
+    st.subheader("📊 Consolidação da Equipe")
+   
     if os.path.exists(DB_FILE):
         df = pd.read_csv(DB_FILE)
-        
+       
         # Métricas gerais
         total_respostas = len(df)
         verdes = len(df[df['Status'] == '🟢 Energizado(a)'])
@@ -173,6 +189,6 @@ else:
         # Tabela com histórico de respostas
         st.markdown("### 📋 Histórico Detalhado")
         st.dataframe(df, use_container_width=True)
-        
+       
     else:
         st.info("Nenhuma resposta registrada ainda. Realize testes na aba 'Interface do Funcionário (Chat)' para alimentar o painel.")
