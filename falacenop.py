@@ -130,7 +130,7 @@ if modo == "Interface do Funcionário (Chat)":
         st.markdown("""
             <div class="agent-card">
                 <strong>🤖 FALACENOP:</strong><br>
-                Obrigado pelo seu retorno! Seu relato é fundamental para mapearmos os ofensores operacionais e mantermos o equilíbrio da equipe.<br><br>
+                Obrigado pelo seu retorno! Seu relato é fundamental para mantermos o equilíbrio da equipe.<br><br>
                 <strong>Tenha um ótimo trabalho! 💛💙</strong>
             </div>
         """, unsafe_allow_html=True)
