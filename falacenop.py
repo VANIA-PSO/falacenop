@@ -90,7 +90,7 @@ if modo == "Interface do Funcionário (Chat)":
         with col1:
             if st.button("🟢 Energizado(a)\n\n(Fluxo normal)", use_container_width=True):
                 salvar_resposta("🟢 Energizado(a)")
-                st.session_state.mensagem_suporte = "Obrigado pelo seu retorno! Seu relato é fundamental para mapearmos os ofensores operacionais e mantermos o equilíbrio da equipe.<br><br><strong>Tenha um ótimo trabalho! 💛💙</strong>"
+                st.session_state.mensagem_suporte = "Obrigado pelo seu retorno! Seu relato é fundamental para mantermos o equilíbrio da equipe.<br><br><strong>Tenha um ótimo trabalho! 💛💙</strong>"
                 st.session_state.step = 3
                 st.rerun()
         with col2:
@@ -134,7 +134,7 @@ if modo == "Interface do Funcionário (Chat)":
             elif motivo_selecionado == "📑 Complexidade de Processos / Dúvidas":
                 st.session_state.mensagem_suporte = "Podemos buscar cursos na UNIBB pra te ajudar."
             elif motivo_selecionado == "👤 Fatores Pessoais / Bem-estar":
-                st.session_state.mensagem_suporte = "O Banco disponibiliza a plataforma Wellbe pra te ajudar a cuidar da saúde mental. Que tal agendar uma consulta?"
+                st.session_state.mensagem_suporte = "O Banco disponibiliza a plataforma Wells pra te ajudar a cuidar da saúde mental. Que tal agendar uma consulta?"
             else:
                 st.session_state.mensagem_suporte = "Obrigado pelo seu retorno! Seu relato é fundamental para mapearmos os ofensores operacionais e mantermos o equilíbrio da equipe."
 
