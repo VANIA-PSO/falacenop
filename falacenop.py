@@ -153,15 +153,14 @@ if modo == "Interface do Funcionário (Chat)":
             </div>
         """, unsafe_allow_html=True)
         
-        # Seção de Sugestões adicionada ao final da tela inicial/fluxo
+        # Seção de Sugestões com "Sim" primeiro e "Não" depois
         st.markdown("---")
         st.markdown("### 💡 Espaço de Contribuição")
-        quer_sugerir = st.radio("Gostaria de deixar alguma sugestão?", ["Não", "Sim"])
+        quer_sugerir = st.radio("Gostaria de deixar alguma sugestão?", ["Sim", "Não"])
         
         if quer_sugerir == "Sim":
             sugestao_texto = st.text_area("Digite sua sugestão aqui:")
             if st.button("Enviar Sugestão"):
-                # Opcional: Você pode salvar a sugestão em arquivo se desejar, ou apenas agradecer
                 st.info("Obrigada por contribuir!")
         else:
             st.write("obrigada!")
