@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import os
@@ -57,7 +58,7 @@ st.markdown("""
 st.sidebar.title("📌 Navegação")
 modo = st.sidebar.radio("Selecione a exibição:", ["Interface do Funcionário (Chat)", "Painel da Gestão (Análises)"])
 
-# Cabeçalho Principal (Atualizado sem "Monitoramento de Clima")
+# Cabeçalho Principal
 st.markdown("""
     <div class="bb-header">
         <span class="bb-tag">Banco do Brasil</span>
@@ -125,7 +126,7 @@ if modo == "Interface do Funcionário (Chat)":
 
         if st.button("Enviar Registro", type="primary", use_container_width=True):
             salvar_resposta(st.session_state.resposta_farol, motivo_selecionado, comentario)
-            
+           
             # Definição de respostas personalizadas de acordo com o motivo selecionado
             if motivo_selecionado == "📦 Volume de Demandas":
                 st.session_state.mensagem_suporte = "As demandas são necessárias para manter sua ocupação dentro dos níveis necessários para cumprir o Conexão."
@@ -133,6 +134,8 @@ if modo == "Interface do Funcionário (Chat)":
                 st.session_state.mensagem_suporte = "Podemos abrir um chamado técnico."
             elif motivo_selecionado == "📑 Complexidade de Processos / Dúvidas":
                 st.session_state.mensagem_suporte = "Podemos buscar cursos na UNIBB pra te ajudar."
+            elif motivo_selecionado == "💬 Comunicação / Alinhamento Interno":
+                st.session_state.mensagem_suporte = "Podemos agendar uma reunião pra falar sobre o assunto."
             elif motivo_selecionado == "👤 Fatores Pessoais / Bem-estar":
                 st.session_state.mensagem_suporte = "O Banco disponibiliza a plataforma Wells pra te ajudar a cuidar da saúde mental. Que tal agendar uma consulta?"
             else:
@@ -149,6 +152,21 @@ if modo == "Interface do Funcionário (Chat)":
                 {st.session_state.mensagem_suporte}
             </div>
         """, unsafe_allow_html=True)
+        
+        # Seção de Sugestões adicionada ao final da tela inicial/fluxo
+        st.markdown("---")
+        st.markdown("### 💡 Espaço de Contribuição")
+        quer_sugerir = st.radio("Gostaria de deixar alguma sugestão?", ["Não", "Sim"])
+        
+        if quer_sugerir == "Sim":
+            sugestao_texto = st.text_area("Digite sua sugestão aqui:")
+            if st.button("Enviar Sugestão"):
+                # Opcional: Você pode salvar a sugestão em arquivo se desejar, ou apenas agradecer
+                st.info("Obrigada por contribuir!")
+        else:
+            st.write("obrigada!")
+
+        st.markdown("<br>", unsafe_allow_html=True)
         if st.button("🔄 Simular Novo Teste", type="secondary"):
             st.session_state.step = 1
             st.session_state.resposta_farol = None
